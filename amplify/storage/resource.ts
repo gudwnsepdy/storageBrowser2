@@ -1,25 +1,13 @@
 import { defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
-  name: 'myStorageBucket',
+  name: 'hjoo-storage-test',
   isDefault: true,
    access: (allow) => ({
-    'hjoo-storage-test/*': [
+    '/*': [
         allow.guest.to(['read', 'write']),
         allow.authenticated.to(['read', 'write', 'delete']),
     ]
    })
 });
-
-export const secondaryStorage = defineStorage({
-  name: 'mySecondaryStorageBucket',
-   access: (allow) => ({
-    '*/*': [
-        allow.guest.to(['read', 'write']),
-        allow.authenticated.to(['read', 'write', 'delete']),
-    ]
-   })
-});
-
-
 
